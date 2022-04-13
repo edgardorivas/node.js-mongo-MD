@@ -3,5 +3,5 @@ let express = require('express');
 let route = express.Router();
 
 route.get('/usuario', algo.mostrarTodo);
-
+route.post('/ingresar', algo.ingresar);
 module.exports = route;

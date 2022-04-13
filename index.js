@@ -4,7 +4,7 @@ let bodyParse = require('body-parser');
 let app = express();
 
 app.use(bodyParse.json());
-app.use(bodyParse.urlencoded({ extended: false }));
+app.use(bodyParse.urlencoded({ extended: true }));
 
 
 app.use('/', [
