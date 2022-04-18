@@ -37,14 +37,8 @@ module.exports = {
   actualizar: async (req, res) => {
     try {
       let id = req.body.id;
-      let consulta = await con.query('select * from usuarios where id = ?', id, (err, result) => {
-        if (err) {
-          return res.status(500).send('no existe en la base de datos');
-        }
-        else {
-          return result;
-        }
-      });
+      let consulta = await con.query('select * from usuarios where id = ?', id);
+      console.log(consulta);
       if (consulta.length > 0) {
         let nombre = (req.body.nombre == null) ? consulta[0]['nombre'] : req.body.nombre;
         let apellido = (req.body.apellido == null) ? consulta[0]['apellido'] : req.body.apellido;
